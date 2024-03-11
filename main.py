@@ -7,32 +7,27 @@ from colorama import init, Fore
 init()
 
 def check_system_requirements():
-    # Step 1: Start checking system requirements
     print("\nStarting system requirements check...")
     time.sleep(1)
 
-    # Step 2: Check if the system has a 64-bit Intel processor
     print("Checking processor architecture...")
     time.sleep(1)
     architecture = platform.architecture()[0]
     if '64' not in architecture:
         return False, "System does not have a 64-bit Intel processor"
-
-    # Step 3: Check if there is at least 10GB of free space on the hard drive
+        
     print("Checking available disk space...")
     time.sleep(1)
     disk_usage = psutil.disk_usage('/')
     if disk_usage.free < 10 * 1024 * 1024 * 1024:  # 10GB in bytes
         return False, "Insufficient free space on the hard drive"
 
-    # Step 4: Check if there is at least 8GB of memory
     print("Checking available memory (RAM)...")
     time.sleep(1)
     memory = psutil.virtual_memory().total
-    if memory < 8 * 1024 * 1024 * 1024:  # 8GB in bytes
+    if memory < 8 * 1024 * 1024 * 1024: 
         return False, "Insufficient memory (RAM)"
 
-    # Step 5: Completed system requirements check
     print("System requirements check completed.")
     time.sleep(1)
 

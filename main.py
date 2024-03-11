@@ -14,7 +14,7 @@ def check_system_requirements():
     time.sleep(1)
     architecture = platform.architecture()[0]
     if '64' not in architecture:
-        return False, "System does not have a 64-bit Intel processor"
+        return False, "System does not have a 64-bit processor"
         
     print("Checking available disk space...")
     time.sleep(1)
